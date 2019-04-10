@@ -22,8 +22,7 @@ const db_pass = process.env.DB_PASSWORD;
 const db_name = process.env.DB_NAME;
 const db_cloud_name = process.env.DB_CLOUD_NAME
 
-
-mongoose.connect(`mongodb+srv://omnistack:omnistack@cluster0-r6scv.mongodb.net/omnistack?retryWrites=true`, {
+mongoose.connect(`mongodb+srv://${db_name}:${db_pass}@${db_cloud_name}`, {
   useNewUrlParser: true
 });
 
