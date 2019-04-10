@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
+require('dotenv').config();
 
 
 const app = express();
@@ -17,7 +18,11 @@ io.on('connection', socket => {
 });
 
 
-mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-r6scv.mongodb.net/omnistack?retryWrites=true', {
+const db_pass = process.env.DB_PASSWORD;
+const db_name = process.env.DB_NAME;
+const db_cloud_name = process.env.DB_CLOUD_NAME
+
+mongoose.connect(`mongodb+srv://${db_name}:${db_pass}@${db_cloud_name}`, {
   useNewUrlParser: true
 });
 
